@@ -1,0 +1,3 @@
+[submodule "ai-deep-learning"]
+	path = ai-deep-learning
+	url = git@github.com:rohit-Jung/college-sem6.git
