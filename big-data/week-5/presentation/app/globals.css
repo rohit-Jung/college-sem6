@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+:root {
+  /* Swiss Design Color Palette */
+  --bg-paper: #f5f4f0;
+  --text-black: #0a0a0a;
+  --accent-red: #e63329;
+  --text-gray: #888888;
+  --border-light: #e8e6e1;
+
+  /* Typography Scale */
+  --fs-display: clamp(120px, 20vw, 480px);
+  --fs-title: clamp(48px, 12vw, 120px);
+  --fs-subhead: clamp(18px, 5vw, 36px);
+  --fs-body: 16px;
+  --fs-caption: 12px;
+  --fs-micro: 9px;
+
+  /* Font Families */
+  --font-display: "Helvetica Neue", "Aktiv Grotesk", sans-serif;
+  --font-body: "Helvetica Neue", sans-serif;
+  --font-mono: var(--font-geist-mono);
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 64px;
+
+  /* Animation */
+  --transition-default: 400ms linear;
+}
+
+@theme inline {
+  --color-background: var(--bg-paper);
+  --color-foreground: var(--text-black);
+  --font-sans: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg-paper);
+  color: var(--text-black);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+}
+
+/* Grain Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' fill='%23000' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Typography Presets */
+.display {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--fs-title);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.subhead {
+  font-family: var(--font-display);
+  font-size: var(--fs-subhead);
+  font-weight: 600;
+}
+
+.caption {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.micro {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Grid System */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  padding: 5% 10%;
+  height: 100%;
+  width: 100%;
+}
+
+/* Accent Bar */
+.accent-bar {
+  height: 4px;
+  background: var(--accent-red);
+  width: 60%;
+}
+
+.accent-bar-full {
+  height: 4px;
+  background: var(--accent-red);
+  width: 100%;
+}
+
+/* Metadata Zone */
+.metadata-zone {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-light);
+}
