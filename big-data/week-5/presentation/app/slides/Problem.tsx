@@ -1,105 +1,156 @@
 export default function ProblemSlide() {
   return (
-    <div className="w-full h-full bg-paper flex flex-col justify-between" style={{ padding: '10%' }}>
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col justify-center">
-        <h2 style={{
-          fontSize: '32px',
-          fontFamily: 'Helvetica, sans-serif',
-          fontWeight: '700',
-          color: '#0a0a0a',
-          marginBottom: '0.5rem',
-          letterSpacing: '-0.02em'
-        }}>
-          VIBE-CODED
-        </h2>
-        <h1 style={{
-          fontSize: 'clamp(120px, 20vw, 240px)',
-          fontFamily: 'Helvetica, sans-serif',
-          fontWeight: '900',
-          lineHeight: '0.9',
-          letterSpacing: '-0.04em',
-          color: '#0a0a0a',
-          marginBottom: '3rem',
-          margin: 0
-        }}>
-          VULNERABILITIES
-        </h1>
-
-        {/* Red Accent Bar */}
-        <div style={{ width: '75%', marginBottom: '3rem', marginTop: '3rem' }}>
-          <div style={{
-            height: '4px',
-            backgroundColor: '#e63329',
-            width: '100%'
-          }} />
-        </div>
-
-        {/* Content Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginTop: '3rem' }}>
-          <div>
-            <p style={{
-              fontFamily: 'monospace',
-              fontSize: '9px',
-              fontWeight: '400',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: '#888888',
-              marginBottom: '0.5rem'
-            }}>
-              CURRENT STATE
-            </p>
-            <p style={{ color: '#0a0a0a', lineHeight: '1.6' }}>
-              Modern software velocity creates exponential CVE surface area
-            </p>
-          </div>
-          <div>
-            <p style={{
-              fontFamily: 'monospace',
-              fontSize: '9px',
-              fontWeight: '400',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: '#888888',
-              marginBottom: '0.5rem'
-            }}>
-              THE PROBLEM
-            </p>
-            <p style={{ color: '#0a0a0a', fontWeight: 'bold', fontSize: '28px', lineHeight: 1 }}>
-              342,000+
-            </p>
-            <p style={{
-              fontFamily: 'monospace',
-              fontSize: '9px',
-              fontWeight: '400',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: '#888888',
-              marginTop: '0.25rem'
-            }}>
-              CVEs unindexed by library
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Metadata Footer */}
+    <div className="w-full h-full" style={{
+      backgroundColor: '#f5f4f0', // OFF WHITE - Swiss material
+      color: '#0a0a0a',
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '0',
+      margin: '0'
+    }}>
+      {/* METADATA ZONE - Top with hairline rule */}
       <div style={{
+        borderBottom: '0.5px solid #c8c6c1',
+        padding: '40px 60px 30px 60px',
         display: 'flex',
-        flexDirection: 'column',
-        gap: '8px',
-        paddingTop: '16px',
-        borderTop: '1px solid #e8e6e1'
+        justifyContent: 'space-between'
       }}>
         <div style={{
-          fontFamily: 'monospace',
-          fontSize: '9px',
+          fontFamily: '"Monaco", "Menlo", monospace',
+          fontSize: '8px',
           fontWeight: '400',
           letterSpacing: '0.15em',
           textTransform: 'uppercase',
           color: '#888888'
         }}>
-          [1] NVD Statistics — NIST (2024)
+          PROBLEM STATEMENT
+        </div>
+        <div style={{
+          fontFamily: '"Monaco", "Menlo", monospace',
+          fontSize: '8px',
+          fontWeight: '400',
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
+          color: '#888888'
+        }}>
+          SLIDE 002
+        </div>
+      </div>
+
+      {/* MAIN CONTENT - Flex layout */}
+      <div style={{
+        flex: 1,
+        display: 'flex',
+        padding: '80px 60px',
+        gap: '80px',
+        alignItems: 'center'
+      }}>
+        {/* Left: VOID ZONE with subtle geometric accent */}
+        <div style={{
+          flex: 1,
+          position: 'relative',
+          minHeight: '300px'
+        }}>
+          {/* Red accent bar - surgical mark */}
+          <div style={{
+            position: 'absolute',
+            top: '0',
+            left: '0',
+            width: '8px',
+            height: '200px',
+            backgroundColor: '#d4564f'
+          }} />
+          
+          {/* Hairline grid annotation */}
+          <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0 }}>
+            {/* Vertical grid lines at 25% opacity */}
+            <line x1="0" y1="0" x2="0" y2="100%" stroke="#c8c6c1" strokeWidth="0.5" opacity="0.4" />
+            <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#c8c6c1" strokeWidth="0.5" opacity="0.4" />
+            <line x1="100%" y1="0" x2="100%" y2="100%" stroke="#c8c6c1" strokeWidth="0.5" opacity="0.4" />
+          </svg>
+        </div>
+
+        {/* Right: ANCHOR ZONE - Display type + Body */}
+        <div style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-start'
+        }}>
+          {/* Level 1: Anchor - Display headline */}
+          <div style={{ viewTransitionName: 'heading-content', marginBottom: '40px' }}>
+            <div style={{
+              fontSize: '180px',
+              fontFamily: '"Helvetica Neue", Arial, sans-serif',
+              fontWeight: '900',
+              lineHeight: '0.85',
+              letterSpacing: '-0.03em',
+              color: '#0a0a0a',
+              margin: '0 0 20px 0',
+              textTransform: 'uppercase'
+            }}>
+              342K+
+            </div>
+            <div style={{
+              fontSize: '96px',
+              fontFamily: '"Helvetica Neue", Arial, sans-serif',
+              fontWeight: '900',
+              lineHeight: '0.85',
+              letterSpacing: '-0.03em',
+              color: '#d4564f',
+              margin: '0 0 40px 0',
+              textTransform: 'uppercase'
+            }}>
+              CVEs
+            </div>
+          </div>
+
+          {/* Level 3: Body - Descriptive text */}
+          <p style={{
+            fontSize: '16px',
+            fontFamily: '"Helvetica Neue", Arial, sans-serif',
+            fontWeight: '400',
+            lineHeight: '1.6',
+            color: '#0a0a0a',
+            margin: '0 0 30px 0',
+            letterSpacing: '0',
+            maxWidth: '500px'
+          }}>
+            Modern software velocity creates exponential CVE surface area. Current ranking systems cannot keep pace with disclosure rates, leaving security teams overwhelmed.
+          </p>
+
+          {/* Level 4: Metadata - Citation */}
+          <div style={{
+            fontFamily: '"Monaco", "Menlo", monospace',
+            fontSize: '8px',
+            fontWeight: '400',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: '#888888',
+            paddingTop: '20px',
+            borderTop: '0.5px solid #c8c6c1'
+          }}>
+            NVD STATISTICS — NIST (2024)
+          </div>
+        </div>
+      </div>
+
+      {/* FOOTER ZONE - Metadata zone with hairline rule */}
+      <div style={{
+        borderTop: '0.5px solid #c8c6c1',
+        padding: '30px 60px',
+        display: 'flex',
+        justifyContent: 'flex-end'
+      }}>
+        <div style={{
+          fontFamily: '"Monaco", "Menlo", monospace',
+          fontSize: '8px',
+          fontWeight: '400',
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
+          color: '#888888'
+        }}>
+          CVE SEARCH ENGINE RESEARCH
         </div>
       </div>
     </div>

@@ -4,22 +4,39 @@
   /* Swiss Design Color Palette */
   --bg-paper: #f5f4f0;
   --text-black: #0a0a0a;
-  --accent-red: #e63329;
+  --accent-red: #d4564f;
   --text-gray: #888888;
   --border-light: #e8e6e1;
+  --white: #ffffff;
 
-  /* Typography Scale */
-  --fs-display: clamp(120px, 20vw, 480px);
-  --fs-title: clamp(48px, 12vw, 120px);
-  --fs-subhead: clamp(18px, 5vw, 36px);
-  --fs-body: 16px;
-  --fs-caption: 12px;
-  --fs-micro: 9px;
+  /* Typography Scale - Swiss Editorial System */
+  --fs-display: clamp(120px, 20vw, 480px);    /* Anchor level - Type as image */
+  --fs-title: clamp(48px, 12vw, 120px);       /* Dominant compositional element */
+  --fs-subhead: clamp(18px, 5vw, 36px);       /* Section markers */
+  --fs-body: 18px;                             /* Readable prose */
+  --fs-caption: 14px;                          /* Labels, descriptions */
+  --fs-micro: 10px;                            /* Metadata, coordinates, annotations */
 
-  /* Font Families */
-  --font-display: "Helvetica Neue", "Aktiv Grotesk", sans-serif;
-  --font-body: "Helvetica Neue", sans-serif;
-  --font-mono: var(--font-geist-mono);
+   /* Font Families */
+   --font-display: "Helvetica Neue", Arial, sans-serif;   /* Display / Grotesque */
+   --font-body: "Helvetica Neue", Arial, sans-serif;      /* Body text */
+   --font-mono: "Monaco", "Menlo", monospace;             /* System language - annotations, code, data */
+
+  /* Typography Details - Swiss Principles */
+  --letter-spacing-tight: -0.02em;             /* Display headlines */
+  --letter-spacing-open: 0.15em;               /* ALL CAPS labels */
+  --letter-spacing-body: 0em;                  /* Body copy */
+  --letter-spacing-micro: 0.1em;               /* Metadata opens slightly */
+  
+  --line-height-display: 0.9;                  /* Compressed, stacked */
+  --line-height-title: 1.1;                    /* Tight headlines */
+  --line-height-body: 1.5;                     /* Readable prose */
+  --line-height-dense: 1.25;                   /* Dense metadata columns */
+
+  /* Font Weights */
+  --fw-regular: 400;                           /* Body, descriptions */
+  --fw-bold: 700;                              /* Titles, emphasis */
+  --fw-black: 900;                             /* Display, dominant words */
 
   /* Spacing */
   --space-xs: 4px;
@@ -28,8 +45,23 @@
   --space-lg: 32px;
   --space-xl: 64px;
 
+  /* Grid & Structure */
+  --grid-columns: 12;
+  --grid-gap: 1.5rem;
+  --grid-margin: 5%;
+  --grid-margin-large: 8%;
+
+  /* Rules & Borders - Swiss Annotation */
+  --rule-hairline: 0.5px;                      /* Structural dividers */
+  --rule-thin: 1px;
+  --rule-accent: 3px;                          /* Accent bars (red/black) */
+  --rule-color-light: #c8c6c1;                 /* Light rule on paper */
+  --rule-color-dark: #888888;                  /* Medium rule */
+
   /* Animation */
   --transition-default: 400ms linear;
+  --duration-exit: 150ms;
+  --duration-enter: 210ms;
 }
 
 @theme inline {
@@ -59,6 +91,8 @@ body {
   font-size: var(--fs-body);
   line-height: 1.5;
 }
+
+/* View Transitions handled by native API only - no CSS animations */
 
 /* Grain Texture Overlay */
 body::before {
@@ -141,4 +175,94 @@ body::before {
   gap: var(--space-sm);
   padding-top: var(--space-md);
   border-top: 1px solid var(--border-light);
+}
+
+/* View Transitions - Directional Navigation Slides */
+::view-transition-old(.nav-forward) {
+  --slide-offset: -60px;
+  animation:
+    var(--duration-exit) ease-in both fade reverse,
+    400ms ease-in-out both slide reverse;
+}
+
+::view-transition-new(.nav-forward) {
+  --slide-offset: 60px;
+  animation:
+    var(--duration-enter) ease-out var(--duration-exit) both fade,
+    600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both slide;
+}
+
+::view-transition-old(.nav-back) {
+  --slide-offset: 60px;
+  animation:
+    var(--duration-exit) ease-in both fade reverse,
+    600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both slide reverse;
+}
+
+::view-transition-new(.nav-back) {
+  --slide-offset: -60px;
+  animation:
+    var(--duration-enter) ease-out var(--duration-exit) both fade,
+    600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both slide;
+}
+
+@keyframes fade {
+  from {
+    filter: blur(3px);
+    opacity: 0;
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide {
+  from {
+    translate: var(--slide-offset);
+  }
+  to {
+    translate: 0;
+  }
+}
+
+/* Heading content morphing transition */
+::view-transition-old(heading-content) {
+  animation: heading-zoom-out 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+::view-transition-new(heading-content) {
+  animation: heading-zoom-in 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes heading-zoom-out {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.92) translateY(-30px);
+  }
+}
+
+@keyframes heading-zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(1.08) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
 }

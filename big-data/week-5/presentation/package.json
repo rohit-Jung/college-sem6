@@ -9,7 +9,11 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "html2pdf.js": "^0.14.0",
+    "jsdom": "^29.0.2",
     "next": "16.2.2",
+    "playwright": "^1.59.1",
+    "puppeteer": "^24.40.0",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
@@ -20,6 +24,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
+    "node-fetch": "^3.3.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   },

@@ -4,53 +4,100 @@ import SearchDemo from '@/app/components/SearchDemo';
 
 export default function SearchDemoSlide() {
   return (
-    <div className="w-full h-full bg-paper flex flex-col justify-between" style={{ padding: '10%' }}>
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col" style={{ display: 'flex', flexDirection: 'column', minHeight: 0 }}>
-        <h2 style={{
-          fontSize: '32px',
-          fontFamily: 'Helvetica, sans-serif',
-          fontWeight: '700',
-          color: '#0a0a0a',
-          marginBottom: '1rem',
-          letterSpacing: '-0.02em'
-        }}>
-          LIVE SEARCH DEMO
-        </h2>
-
-        <div style={{
-          height: '4px',
-          backgroundColor: '#e63329',
-          width: '33%',
-          marginBottom: '2rem'
-        }} />
-
-        {/* Search Interface Placeholder */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minHeight: 0, overflowY: 'auto' }}>
-          <SearchDemo autoTriggerDelay={2000} />
-        </div>
-      </div>
-
-      {/* Metadata Footer */}
+    <div className="w-full h-full" style={{
+      backgroundColor: '#f5f4f0',
+      color: '#0a0a0a',
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '0',
+      margin: '0'
+    }}>
+      {/* METADATA ZONE - Top */}
       <div style={{
+        borderBottom: '0.5px solid #c8c6c1',
+        padding: '40px 60px 30px 60px',
         display: 'flex',
-        flexDirection: 'column',
-        gap: '8px',
-        paddingTop: '16px',
-        borderTop: '1px solid #e8e6e1'
+        justifyContent: 'space-between'
       }}>
         <div style={{
-          fontFamily: 'monospace',
-          fontSize: '9px',
+          fontFamily: '"Monaco", "Menlo", monospace',
+          fontSize: '8px',
           fontWeight: '400',
           letterSpacing: '0.15em',
           textTransform: 'uppercase',
           color: '#888888'
         }}>
-          [4] PageRank Adaptation for Vulnerability Networks
+          INTERACTIVE DEMONSTRATION
+        </div>
+        <div style={{
+          fontFamily: '"Monaco", "Menlo", monospace',
+          fontSize: '8px',
+          fontWeight: '400',
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
+          color: '#888888'
+        }}>
+          SLIDE 010
+        </div>
+      </div>
+
+      {/* ANCHOR ZONE - Display headline */}
+      <div style={{
+        borderBottom: '0.5px solid #c8c6c1',
+        padding: '40px 60px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        viewTransitionName: 'heading-content'
+      }}>
+        <h1 style={{
+          fontSize: '80px',
+          fontFamily: '"Helvetica Neue", Arial, sans-serif',
+          fontWeight: '900',
+          lineHeight: '0.85',
+          letterSpacing: '-0.03em',
+          color: '#0a0a0a',
+          margin: '0 0 20px 0',
+          textTransform: 'uppercase'
+        }}>
+          Search in<br />Action
+        </h1>
+        {/* Red accent bar */}
+        <div style={{
+          width: '100px',
+          height: '8px',
+          backgroundColor: '#d4564f'
+        }} />
+      </div>
+
+      {/* INTERACTIVE ZONE - Search component */}
+      <div style={{
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '0',
+        padding: '60px 60px',
+        overflowY: 'auto'
+      }}>
+        <SearchDemo autoTriggerDelay={2000} />
+      </div>
+
+      {/* FOOTER ZONE - Metadata */}
+      <div style={{
+        borderTop: '0.5px solid #c8c6c1',
+        padding: '30px 60px'
+      }}>
+        <div style={{
+          fontFamily: '"Monaco", "Menlo", monospace',
+          fontSize: '8px',
+          fontWeight: '400',
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+          color: '#888888'
+        }}>
+          REAL-TIME RANKING — PAGERANK + BM25 + CVSS SCORING IN ACTION
         </div>
       </div>
     </div>
   );
 }
-

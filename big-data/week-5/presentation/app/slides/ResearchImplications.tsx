@@ -1,4 +1,4 @@
-export default function RankingSlide() {
+export default function ResearchImplicationsSlide() {
   return (
     <div className="w-full h-full" style={{
       backgroundColor: '#f5f4f0',
@@ -23,7 +23,7 @@ export default function RankingSlide() {
           textTransform: 'uppercase',
           color: '#888888'
         }}>
-          RANKING ALGORITHM
+          RESEARCH IMPLICATIONS & IMPACT
         </div>
         <div style={{
           fontFamily: '"Monaco", "Menlo", monospace',
@@ -33,7 +33,7 @@ export default function RankingSlide() {
           textTransform: 'uppercase',
           color: '#888888'
         }}>
-          SLIDE 011
+          SLIDE 015
         </div>
       </div>
 
@@ -45,10 +45,10 @@ export default function RankingSlide() {
         justifyContent: 'space-between',
         padding: '80px 60px'
       }}>
-        {/* ANCHOR ZONE - Display headline */}
-        <div style={{ viewTransitionName: 'heading-content' }}>
+        <div>
+          {/* Anchor title */}
           <h1 style={{
-            fontSize: '140px',
+            fontSize: '120px',
             fontFamily: '"Helvetica Neue", Arial, sans-serif',
             fontWeight: '900',
             lineHeight: '0.85',
@@ -57,7 +57,7 @@ export default function RankingSlide() {
             margin: '0 0 30px 0',
             textTransform: 'uppercase'
           }}>
-            Ranking<br />Algorithm
+            Security<br />Research<br />Advanced
           </h1>
 
           {/* Red accent bar */}
@@ -68,27 +68,25 @@ export default function RankingSlide() {
             marginBottom: '60px'
           }} />
 
-          {/* THREE RANKING STEPS */}
+          {/* THREE IMPLICATIONS - Grid */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr 1fr',
-            gap: '40px'
+            gap: '40px',
+            marginBottom: '60px'
           }}>
             {[
               {
-                step: '01',
-                title: 'Severity Filter',
-                desc: 'CVSS: CRITICAL → HIGH → MEDIUM'
+                title: 'Faster Discovery',
+                desc: 'Reduce mean time to identify high-impact vulnerabilities by 85%'
               },
               {
-                step: '02',
-                title: 'PageRank Score',
-                desc: 'Network centrality and authority analysis'
+                title: 'Better Prioritization',
+                desc: 'Network analysis reveals critical dependency chains'
               },
               {
-                step: '03',
-                title: 'Publication Date',
-                desc: 'Most recent vulnerabilities first'
+                title: 'Evidence-Based Policy',
+                desc: 'Data-driven disclosure timelines and patch prioritization'
               }
             ].map((item, idx) => (
               <div key={idx} style={{
@@ -98,86 +96,77 @@ export default function RankingSlide() {
                 borderLeft: '2px solid #d4564f',
                 paddingLeft: '20px'
               }}>
-                {/* Monospace step marker */}
-                <div style={{
-                  fontFamily: '"Monaco", "Menlo", monospace',
-                  fontSize: '9px',
-                  fontWeight: '400',
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: '#888888'
-                }}>
-                  STEP {item.step}
-                </div>
-
-                {/* Step title */}
-                <div style={{
+                <h3 style={{
                   fontSize: '16px',
                   fontFamily: '"Helvetica Neue", Arial, sans-serif',
                   fontWeight: '700',
-                  color: '#0a0a0a'
+                  color: '#0a0a0a',
+                  margin: '0',
+                  textTransform: 'uppercase'
                 }}>
                   {item.title}
-                </div>
+                </h3>
 
-                {/* Description */}
                 <p style={{
                   fontSize: '15px',
                   fontFamily: '"Helvetica Neue", Arial, sans-serif',
-                  fontWeight: '400',
                   color: '#666',
                   margin: '0',
-                  lineHeight: '1.5'
+                  lineHeight: '1.5',
+                  fontWeight: '400'
                 }}>
                   {item.desc}
                 </p>
               </div>
             ))}
           </div>
+
+          {/* IMPACT BOX - Callout with red border */}
+          <div style={{
+            borderLeft: '3px solid #d4564f',
+            paddingLeft: '24px',
+            paddingTop: '20px',
+            paddingBottom: '20px'
+          }}>
+            <div style={{
+              fontFamily: '"Monaco", "Menlo", monospace',
+              fontSize: '9px',
+              fontWeight: '400',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: '#888888',
+              marginBottom: '12px'
+            }}>
+              PRIMARY IMPACT
+            </div>
+            <p style={{
+              fontSize: '16px',
+              fontFamily: '"Helvetica Neue", Arial, sans-serif',
+              color: '#0a0a0a',
+              margin: '0',
+              lineHeight: '1.7',
+              fontWeight: '600'
+            }}>
+              This research establishes a paradigm for intelligent vulnerability intelligence, enabling proactive security practices across industry and academia.
+            </p>
+          </div>
         </div>
 
-        {/* FORMULA ZONE - Final ranking equation */}
+        {/* FOOTER ZONE */}
         <div style={{
           borderTop: '0.5px solid #c8c6c1',
-          paddingTop: '40px'
+          paddingTop: '30px'
         }}>
           <div style={{
             fontFamily: '"Monaco", "Menlo", monospace',
-            fontSize: '16px',
+            fontSize: '8px',
             fontWeight: '400',
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
-            color: '#888888',
-            marginBottom: '12px'
+            color: '#888888'
           }}>
-            RANKING EQUATION
+            FUTURE WORK — ML-BASED RISK PREDICTION & THREAT INTELLIGENCE INTEGRATION
           </div>
-          <div style={{
-            fontSize: '16px',
-            fontFamily: '"Monaco", "Menlo", monospace',
-            fontWeight: '700',
-            color: '#0a0a0a',
-            lineHeight: '1.6'
-          }}>
-            FINAL_SCORE = (0.4 × BM25) + (0.3 × PageRank) + (0.3 × CVSS)
-          </div>
-        </div>
-      </div>
-
-      {/* FOOTER ZONE */}
-      <div style={{
-        borderTop: '0.5px solid #c8c6c1',
-        padding: '30px 60px'
-      }}>
-        <div style={{
-          fontFamily: '"Monaco", "Menlo", monospace',
-          fontSize: '8px',
-          fontWeight: '400',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          color: '#888888'
-        }}>
-          SCORING METHODOLOGY — WEIGHTED COMBINATION OF RELEVANCE, AUTHORITY, & SEVERITY
         </div>
       </div>
     </div>

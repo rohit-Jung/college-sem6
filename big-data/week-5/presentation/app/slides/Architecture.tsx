@@ -1,141 +1,253 @@
 export default function ArchitectureSlide() {
   return (
-    <div className="w-full h-full bg-paper flex flex-col justify-between" style={{ padding: '10%' }}>
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col justify-center">
-        <h2 style={{
-          fontSize: '32px',
-          fontFamily: 'Helvetica, sans-serif',
-          fontWeight: '700',
-          color: '#0a0a0a',
-          marginBottom: '2rem',
-          letterSpacing: '-0.02em'
-        }}>
-          SYSTEM ARCHITECTURE
-        </h2>
-
-        {/* Architecture Diagram - ASCII/Swiss Style */}
-        <div style={{
-          backgroundColor: '#ffffff',
-          border: '1px solid #0a0a0a',
-          padding: '2rem',
-          fontFamily: 'monospace',
-          fontSize: '12px',
-          marginTop: '2rem'
-        }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-            <div style={{ textAlign: 'center', flex: 1 }}>
-              <div style={{ border: '1px solid #0a0a0a', padding: '1rem', display: 'inline-block', minWidth: '100px' }}>
-                <p style={{ fontSize: '9px', fontWeight: 'bold', textTransform: 'uppercase', margin: 0 }}>NVD API</p>
-              </div>
-            </div>
-            <div style={{ flex: 1, borderTop: '1px solid #0a0a0a', height: 0, position: 'relative', margin: '0 1rem' }}>
-              <span style={{ position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%) translateX(8px)' }}>▶</span>
-            </div>
-            <div style={{ textAlign: 'center', flex: 1 }}>
-              <div style={{ border: '1px solid #0a0a0a', padding: '1rem', display: 'inline-block', minWidth: '100px' }}>
-                <p style={{ fontSize: '9px', fontWeight: 'bold', textTransform: 'uppercase', margin: 0 }}>CPE PARSE</p>
-              </div>
-            </div>
-            <div style={{ flex: 1, borderTop: '1px solid #0a0a0a', height: 0, position: 'relative', margin: '0 1rem' }}>
-              <span style={{ position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%) translateX(8px)' }}>▶</span>
-            </div>
-            <div style={{ textAlign: 'center', flex: 1 }}>
-              <div style={{ border: '1px solid #0a0a0a', padding: '1rem', display: 'inline-block', minWidth: '100px' }}>
-                <p style={{ fontSize: '9px', fontWeight: 'bold', textTransform: 'uppercase', margin: 0 }}>INDEX</p>
-              </div>
-            </div>
-          </div>
-
-          <div style={{ textAlign: 'center', margin: '1.5rem 0' }}>
-            <span style={{ fontSize: '16px', fontWeight: 'bold' }}>↓</span>
-          </div>
-
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div style={{ textAlign: 'center', flex: 1 }}>
-              <div style={{ border: '1px solid #0a0a0a', padding: '1rem', display: 'inline-block', minWidth: '120px' }}>
-                <p style={{ fontSize: '9px', fontWeight: 'bold', textTransform: 'uppercase', margin: 0 }}>RANK ENGINE</p>
-                <p style={{ fontSize: '11px', color: '#888888', margin: '0.25rem 0 0 0' }}>CVSS + PageRank</p>
-              </div>
-            </div>
-            <div style={{ flex: 1, borderTop: '1px solid #0a0a0a', height: 0, position: 'relative', margin: '0 1rem' }}>
-              <span style={{ position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%) translateX(8px)' }}>▶</span>
-            </div>
-            <div style={{ textAlign: 'center', flex: 1 }}>
-              <div style={{ border: '2px solid #e63329', backgroundColor: '#fffbfb', padding: '1rem', display: 'inline-block', minWidth: '120px' }}>
-                <p style={{ fontSize: '9px', fontWeight: 'bold', textTransform: 'uppercase', color: '#e63329', margin: 0 }}>RESULTS</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Key Metrics */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '2rem', marginTop: '2rem' }}>
-          <div>
-            <p style={{
-              fontFamily: 'monospace',
-              fontSize: '9px',
-              fontWeight: '400',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: '#888888',
-              marginBottom: '0.5rem'
-            }}>
-              DATA SOURCE
-            </p>
-            <p style={{ color: '#0a0a0a', fontWeight: 600 }}>NVD 2.0 API</p>
-          </div>
-          <div>
-            <p style={{
-              fontFamily: 'monospace',
-              fontSize: '9px',
-              fontWeight: '400',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: '#888888',
-              marginBottom: '0.5rem'
-            }}>
-              FILTERING
-            </p>
-            <p style={{ color: '#0a0a0a', fontWeight: 600 }}>Library + Severity</p>
-          </div>
-          <div>
-            <p style={{
-              fontFamily: 'monospace',
-              fontSize: '9px',
-              fontWeight: '400',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: '#888888',
-              marginBottom: '0.5rem'
-            }}>
-              RANKING
-            </p>
-            <p style={{ color: '#0a0a0a', fontWeight: 600 }}>Severity → Score → Date</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Metadata Footer */}
+    <div className="w-full h-full" style={{
+      backgroundColor: '#f5f4f0',
+      color: '#0a0a0a',
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '0',
+      margin: '0'
+    }}>
+      {/* METADATA ZONE - Top */}
       <div style={{
+        borderBottom: '0.5px solid #c8c6c1',
+        padding: '40px 60px 30px 60px',
         display: 'flex',
-        flexDirection: 'column',
-        gap: '8px',
-        paddingTop: '16px',
-        borderTop: '1px solid #e8e6e1'
+        justifyContent: 'space-between'
       }}>
         <div style={{
-          fontFamily: 'monospace',
-          fontSize: '9px',
+          fontFamily: '"Monaco", "Menlo", monospace',
+          fontSize: '8px',
           fontWeight: '400',
           letterSpacing: '0.15em',
           textTransform: 'uppercase',
           color: '#888888'
         }}>
-          [3] CVSS v3.1 Specification — FIRST.org (2022)
+          SYSTEM ARCHITECTURE
+        </div>
+        <div style={{
+          fontFamily: '"Monaco", "Menlo", monospace',
+          fontSize: '8px',
+          fontWeight: '400',
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
+          color: '#888888'
+        }}>
+          SLIDE 008
+        </div>
+      </div>
+
+      {/* MAIN CONTENT - Data flow diagram */}
+      <div style={{
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '80px 60px'
+      }}>
+        {/* PROCESSING PIPELINE - Horizontal flow */}
+        <div style={{
+          width: '100%',
+          maxWidth: '1000px'
+        }}>
+          {/* Stage 1: Input */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: '60px',
+            gap: '40px'
+          }}>
+            {['INPUT', 'PARSE', 'INDEX'].map((label, idx) => (
+              <div key={idx} style={{
+                flex: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '12px'
+              }}>
+                {/* Monospace label */}
+                <div style={{
+                  fontFamily: '"Monaco", "Menlo", monospace',
+                  fontSize: '9px',
+                  fontWeight: '400',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: '#888888'
+                }}>
+                  STAGE {String(idx + 1).padStart(2, '0')}
+                </div>
+
+                {/* Box with title */}
+                <div style={{
+                  border: '0.5px solid #0a0a0a',
+                  padding: '24px 32px',
+                  textAlign: 'center',
+                  minWidth: '120px'
+                }}>
+                  <div style={{
+                    fontSize: '16px',
+                    fontFamily: '"Helvetica Neue", Arial, sans-serif',
+                    fontWeight: '700',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em',
+                    color: '#0a0a0a'
+                  }}>
+                    {label}
+                  </div>
+                  {idx === 0 && (
+                    <div style={{
+                      fontSize: '16px',
+                      fontFamily: '"Monaco", "Menlo", monospace',
+                      color: '#888888',
+                      marginTop: '8px'
+                    }}>
+                      NVD 2.0
+                    </div>
+                  )}
+                  {idx === 1 && (
+                    <div style={{
+                      fontSize: '16px',
+                      fontFamily: '"Monaco", "Menlo", monospace',
+                      color: '#888888',
+                      marginTop: '8px'
+                    }}>
+                      CPE+CVSS
+                    </div>
+                  )}
+                  {idx === 2 && (
+                    <div style={{
+                      fontSize: '16px',
+                      fontFamily: '"Monaco", "Menlo", monospace',
+                      color: '#888888',
+                      marginTop: '8px'
+                    }}>
+                      Inverted
+                    </div>
+                  )}
+                </div>
+
+                {/* Connecting arrow */}
+                {idx < 2 && (
+                  <div style={{
+                    fontSize: '18px',
+                    fontFamily: '"Helvetica Neue", Arial, sans-serif',
+                    color: '#0a0a0a',
+                    marginTop: '8px'
+                  }}>
+                    →
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Vertical divider */}
+          <div style={{
+            height: '40px',
+            borderLeft: '0.5px solid #c8c6c1',
+            margin: '0 auto',
+            width: '0'
+          }} />
+
+          {/* Stage 2: Ranking & Results */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginTop: '60px',
+            gap: '40px'
+          }}>
+            {[
+              { label: 'RANK ENGINE', sublabel: 'PageRank\nBM25\nCVSS' },
+              { label: 'RESULTS', sublabel: 'Sorted\nRanked\nFiltered' }
+            ].map((item, idx) => (
+              <div key={idx} style={{
+                flex: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '12px'
+              }}>
+                {/* Monospace label */}
+                <div style={{
+                  fontFamily: '"Monaco", "Menlo", monospace',
+                  fontSize: '9px',
+                  fontWeight: '400',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: '#888888'
+                }}>
+                  STAGE {String(idx + 4).padStart(2, '0')}
+                </div>
+
+                {/* Box - results in red accent */}
+                <div style={{
+                  border: idx === 0 ? '0.5px solid #0a0a0a' : '2px solid #d4564f',
+                  padding: '24px 32px',
+                  textAlign: 'center',
+                  minWidth: '140px',
+                  backgroundColor: idx === 0 ? 'transparent' : '#ffe8e6'
+                }}>
+                  <div style={{
+                    fontSize: '16px',
+                    fontFamily: '"Helvetica Neue", Arial, sans-serif',
+                    fontWeight: '700',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em',
+                    color: idx === 0 ? '#0a0a0a' : '#d4564f'
+                  }}>
+                    {item.label}
+                  </div>
+                  <div style={{
+                    fontSize: '16px',
+                    fontFamily: '"Monaco", "Menlo", monospace',
+                    color: idx === 0 ? '#888888' : '#d4564f',
+                    marginTop: '8px',
+                    lineHeight: '1.5'
+                  }}>
+                    {item.sublabel.split('\n').map((line, i) => (
+                      <div key={i}>{line}</div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Connecting arrow */}
+                {idx < 1 && (
+                  <div style={{
+                    fontSize: '18px',
+                    fontFamily: '"Helvetica Neue", Arial, sans-serif',
+                    color: '#0a0a0a',
+                    marginTop: '8px'
+                  }}>
+                    →
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* FOOTER ZONE - Metadata */}
+      <div style={{
+        borderTop: '0.5px solid #c8c6c1',
+        padding: '30px 60px',
+        display: 'flex',
+        justifyContent: 'space-between'
+      }}>
+        <div style={{
+          fontFamily: '"Monaco", "Menlo", monospace',
+          fontSize: '8px',
+          fontWeight: '400',
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+          color: '#888888'
+        }}>
+          SYSTEM PIPELINE — DATA FLOW FROM INGESTION TO RANKED RESULTS
         </div>
       </div>
     </div>
   );
 }
-

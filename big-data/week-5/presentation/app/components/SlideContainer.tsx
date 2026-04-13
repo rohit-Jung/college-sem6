@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, ReactNode } from 'react';
+import { ReactNode, useEffect, useState, ViewTransition } from 'react';
 
 interface Slide {
   id: number;
@@ -11,187 +11,138 @@ interface SlideContainerProps {
   slides: Slide[];
 }
 
+type TransitionDirection = 'forward' | 'back';
+
 export default function SlideContainer({ slides }: SlideContainerProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [direction, setDirection] = useState<'left' | 'right'>('right');
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [direction, setDirection] = useState<TransitionDirection>('forward');
 
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (isTransitioning) return;
-
-    switch (e.key) {
-      case 'ArrowRight':
-        e.preventDefault();
-        if (currentSlide < slides.length - 1) {
-          setDirection('right');
-          setIsTransitioning(true);
-          setCurrentSlide((prev) => prev + 1);
-        }
-        break;
-
-      case 'ArrowLeft':
-        e.preventDefault();
-        if (currentSlide > 0) {
-          setDirection('left');
-          setIsTransitioning(true);
-          setCurrentSlide((prev) => prev - 1);
-        }
-        break;
-
-      case 'End':
-        e.preventDefault();
-        if (currentSlide !== slides.length - 1) {
-          setDirection('right');
-          setIsTransitioning(true);
-          setCurrentSlide(slides.length - 1);
-        }
-        break;
-
-      case 'Home':
-        e.preventDefault();
-        if (currentSlide !== 0) {
-          setDirection('left');
-          setIsTransitioning(true);
-          setCurrentSlide(0);
-        }
-        break;
-
-      default:
-        break;
+  const handleNavigation = (newSlide: number) => {
+    if (newSlide >= 0 && newSlide < slides.length && newSlide !== currentSlide) {
+      setDirection(newSlide > currentSlide ? 'forward' : 'back');
+      setCurrentSlide(newSlide);
     }
   };
 
   useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case 'ArrowRight':
+          e.preventDefault();
+          handleNavigation(currentSlide + 1);
+          break;
+
+        case 'ArrowLeft':
+          e.preventDefault();
+          handleNavigation(currentSlide - 1);
+          break;
+
+        case 'End':
+          e.preventDefault();
+          handleNavigation(slides.length - 1);
+          break;
+
+        case 'Home':
+          e.preventDefault();
+          handleNavigation(0);
+          break;
+
+        default:
+          break;
+      }
+    };
+
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentSlide, isTransitioning, slides.length]);
-
-  const handleAnimationEnd = () => {
-    setIsTransitioning(false);
-  };
-
-  // Determine animation classes based on direction
-  const getSlideClass = (index: number) => {
-    const isActive = index === currentSlide;
-    const isExiting = index === currentSlide - (direction === 'right' ? 1 : -1);
-
-    if (isActive && !isTransitioning) {
-      return 'slide-active';
-    }
-
-    if (isExiting && isTransitioning) {
-      return direction === 'right' ? 'slide-exit-left' : 'slide-exit-right';
-    }
-
-    if (isActive && isTransitioning) {
-      return direction === 'right' ? 'slide-enter-right' : 'slide-enter-left';
-    }
-
-    return 'slide-hidden';
-  };
+  }, [currentSlide, slides.length]);
 
   return (
     <>
       <style>{`
-        @keyframes slideInFromRight {
-          from {
-            opacity: 0;
-            transform: translateX(100%);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
+        :root {
+          --duration-enter: 300ms;
+          --duration-exit: 250ms;
         }
 
-        @keyframes slideOutToLeft {
-          from {
-            opacity: 1;
-            transform: translateX(0);
-          }
+        /* Forward slide animations */
+        @keyframes slide-forward-out {
           to {
             opacity: 0;
-            transform: translateX(-100%);
+            transform: translateX(-60px);
           }
         }
 
-        @keyframes slideInFromLeft {
+        @keyframes slide-forward-in {
           from {
             opacity: 0;
-            transform: translateX(-100%);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
+            transform: translateX(60px);
           }
         }
 
-        @keyframes slideOutToRight {
-          from {
-            opacity: 1;
-            transform: translateX(0);
-          }
+        /* Backward slide animations */
+        @keyframes slide-back-out {
           to {
             opacity: 0;
-            transform: translateX(100%);
+            transform: translateX(60px);
           }
         }
 
-        .slide-container {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
+        @keyframes slide-back-in {
+          from {
+            opacity: 0;
+            transform: translateX(-60px);
+          }
         }
 
-        .slide-wrapper {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
+        /* Apply animations to view transitions */
+        ::view-transition-old(slide-forward) {
+          animation: slide-forward-out var(--duration-exit) cubic-bezier(0.4, 0, 1, 1) forwards;
         }
 
-        .slide-hidden {
-          display: none;
+        ::view-transition-new(slide-forward) {
+          animation: slide-forward-in var(--duration-enter) cubic-bezier(0, 0, 0.2, 1) forwards;
         }
 
-        .slide-active {
-          animation: none;
-          opacity: 1;
+        ::view-transition-old(slide-back) {
+          animation: slide-back-out var(--duration-exit) cubic-bezier(0.4, 0, 1, 1) forwards;
         }
 
-        .slide-enter-right {
-          animation: slideInFromRight 400ms linear forwards;
+        ::view-transition-new(slide-back) {
+          animation: slide-back-in var(--duration-enter) cubic-bezier(0, 0, 0.2, 1) forwards;
         }
 
-        .slide-exit-left {
-          animation: slideOutToLeft 400ms linear forwards;
-        }
-
-        .slide-enter-left {
-          animation: slideInFromLeft 400ms linear forwards;
-        }
-
-        .slide-exit-right {
-          animation: slideOutToRight 400ms linear forwards;
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+          ::view-transition-old(slide-forward),
+          ::view-transition-new(slide-forward),
+          ::view-transition-old(slide-back),
+          ::view-transition-new(slide-back) {
+            animation: none !important;
+          }
         }
       `}</style>
 
-      <div className="slide-container">
-        {slides.map((slide) => (
-          <div
-            key={slide.id}
-            className={`slide-wrapper ${getSlideClass(slide.id)}`}
-            onAnimationEnd={handleAnimationEnd}
-          >
-            {slide.component}
-          </div>
-        ))}
-      </div>
+      <ViewTransition
+        key={currentSlide}
+        name={direction === 'forward' ? 'slide-forward' : 'slide-back'}
+        enter={{
+          forward: 'slide-forward-in',
+          back: 'slide-back-in',
+          default: 'none',
+        }}
+        exit={{
+          forward: 'slide-forward-out',
+          back: 'slide-back-out',
+          default: 'none',
+        }}
+      >
+        <div>
+          {slides[currentSlide].component}
+        </div>
+      </ViewTransition>
 
       {/* Navigation Indicator */}
-      <div className="fixed bottom-4 right-4 micro text-gray-600">
+      <div className="fixed bottom-4 right-4 text-sm text-gray-600 font-mono">
         <span>{currentSlide + 1} / {slides.length}</span>
       </div>
     </>

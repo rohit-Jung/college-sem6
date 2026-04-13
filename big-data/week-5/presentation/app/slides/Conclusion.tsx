@@ -1,100 +1,156 @@
 export default function ConclusionSlide() {
   return (
-    <div className="w-full h-full bg-paper flex flex-col justify-between" style={{ padding: '10%' }}>
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col justify-center items-center text-center">
-        <div style={{ width: '25%', marginBottom: '3rem' }}>
-          <div style={{
-            height: '4px',
-            backgroundColor: '#e63329',
-            width: '100%',
-            margin: '0 auto'
-          }} />
-        </div>
-
-        <h1 style={{
-          fontSize: 'clamp(80px, 18vw, 180px)',
-          fontFamily: 'Helvetica, sans-serif',
-          fontWeight: '900',
-          lineHeight: '0.9',
-          letterSpacing: '-0.04em',
-          color: '#0a0a0a',
-          marginBottom: '2rem',
-          margin: 0
-        }}>
-          FASTER DISCOVERY
-        </h1>
-
-        <p style={{ color: '#0a0a0a', fontSize: '20px', maxWidth: '800px', lineHeight: '1.6', marginBottom: '3rem' }}>
-          Empower security researchers, developers, and academicians with structured vulnerability intelligence
-        </p>
-
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '3rem', width: '100%', marginTop: '3rem' }}>
-          <div>
-            <p style={{
-              fontFamily: 'monospace',
-              fontSize: '9px',
-              fontWeight: '400',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: '#888888',
-              marginBottom: '0.5rem'
-            }}>
-              NEXT STEP 01
-            </p>
-            <p style={{ color: '#0a0a0a', fontWeight: 600, fontSize: '14px' }}>Expand CVE Sources</p>
-          </div>
-          <div>
-            <p style={{
-              fontFamily: 'monospace',
-              fontSize: '9px',
-              fontWeight: '400',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: '#888888',
-              marginBottom: '0.5rem'
-            }}>
-              NEXT STEP 02
-            </p>
-            <p style={{ color: '#0a0a0a', fontWeight: 600, fontSize: '14px' }}>Real-time Updates</p>
-          </div>
-          <div>
-            <p style={{
-              fontFamily: 'monospace',
-              fontSize: '9px',
-              fontWeight: '400',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: '#888888',
-              marginBottom: '0.5rem'
-            }}>
-              NEXT STEP 03
-            </p>
-            <p style={{ color: '#0a0a0a', fontWeight: 600, fontSize: '14px' }}>ML-Powered Analysis</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Metadata Footer */}
+    <div className="w-full h-full" style={{
+      backgroundColor: '#f5f4f0',
+      color: '#0a0a0a',
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '0',
+      margin: '0'
+    }}>
+      {/* METADATA ZONE - Top */}
       <div style={{
+        borderBottom: '0.5px solid #c8c6c1',
+        padding: '40px 60px 30px 60px',
         display: 'flex',
-        flexDirection: 'column',
-        gap: '8px',
-        paddingTop: '16px',
-        borderTop: '1px solid #e8e6e1'
+        justifyContent: 'space-between'
       }}>
         <div style={{
-          fontFamily: 'monospace',
-          fontSize: '9px',
+          fontFamily: '"Monaco", "Menlo", monospace',
+          fontSize: '8px',
           fontWeight: '400',
           letterSpacing: '0.15em',
           textTransform: 'uppercase',
           color: '#888888'
         }}>
-          END OF PRESENTATION
+          CONCLUSION & SUMMARY
+        </div>
+        <div style={{
+          fontFamily: '"Monaco", "Menlo", monospace',
+          fontSize: '8px',
+          fontWeight: '400',
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
+          color: '#888888'
+        }}>
+          SLIDE 012
+        </div>
+      </div>
+
+      {/* MAIN CONTENT */}
+      <div style={{
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        padding: '80px 60px'
+      }}>
+        {/* ANCHOR ZONE - Display headline */}
+        <div style={{ viewTransitionName: 'heading-content' }}>
+          {/* Red accent bar */}
+          <div style={{
+            width: '120px',
+            height: '8px',
+            backgroundColor: '#d4564f',
+            marginBottom: '40px'
+          }} />
+
+          <h1 style={{
+            fontSize: '160px',
+            fontFamily: '"Helvetica Neue", Arial, sans-serif',
+            fontWeight: '900',
+            lineHeight: '0.85',
+            letterSpacing: '-0.03em',
+            color: '#0a0a0a',
+            margin: '0 0 30px 0',
+            textTransform: 'uppercase'
+          }}>
+            Faster<br />Discovery
+          </h1>
+
+          {/* Subtitle */}
+          <p style={{
+            fontSize: '18px',
+            fontFamily: '"Helvetica Neue", Arial, sans-serif',
+            lineHeight: '1.7',
+            color: '#666',
+            margin: '30px 0 60px 0',
+            maxWidth: '750px',
+            fontWeight: '400'
+          }}>
+            Empower security researchers, developers, and organizations with intelligent, structured vulnerability intelligence systems.
+          </p>
+
+          {/* THREE NEXT STEPS */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr 1fr',
+            gap: '40px'
+          }}>
+            {[
+              { num: '01', title: 'Expand CVE Sources', desc: 'Integrate additional vulnerability databases' },
+              { num: '02', title: 'Real-time Updates', desc: 'Live feeds from multiple disclosure channels' },
+              { num: '03', title: 'ML Analysis', desc: 'Predictive severity and impact modeling' }
+            ].map((item, idx) => (
+              <div key={idx} style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '16px',
+                borderLeft: '2px solid #d4564f',
+                paddingLeft: '20px'
+              }}>
+                <div style={{
+                  fontFamily: '"Monaco", "Menlo", monospace',
+                  fontSize: '9px',
+                  fontWeight: '400',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: '#888888'
+                }}>
+                  STEP {item.num}
+                </div>
+
+                <div style={{
+                  fontSize: '16px',
+                  fontFamily: '"Helvetica Neue", Arial, sans-serif',
+                  fontWeight: '700',
+                  color: '#0a0a0a'
+                }}>
+                  {item.title}
+                </div>
+
+                <p style={{
+                  fontSize: '15px',
+                  fontFamily: '"Helvetica Neue", Arial, sans-serif',
+                  fontWeight: '400',
+                  color: '#666',
+                  margin: '0',
+                  lineHeight: '1.5'
+                }}>
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* FOOTER ZONE */}
+        <div style={{
+          borderTop: '0.5px solid #c8c6c1',
+          paddingTop: '30px'
+        }}>
+          <div style={{
+            fontFamily: '"Monaco", "Menlo", monospace',
+            fontSize: '8px',
+            fontWeight: '400',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: '#888888'
+          }}>
+            END OF PRESENTATION — FUTURE DIRECTIONS FOR VULNERABILITY RESEARCH
+          </div>
         </div>
       </div>
     </div>
   );
 }
-

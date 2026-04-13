@@ -1,4 +1,4 @@
-export default function RankingSlide() {
+export default function ResearchQuestionSlide() {
   return (
     <div className="w-full h-full" style={{
       backgroundColor: '#f5f4f0',
@@ -8,7 +8,7 @@ export default function RankingSlide() {
       padding: '0',
       margin: '0'
     }}>
-      {/* METADATA ZONE - Top */}
+      {/* METADATA ZONE - Top with hairline rule */}
       <div style={{
         borderBottom: '0.5px solid #c8c6c1',
         padding: '40px 60px 30px 60px',
@@ -23,7 +23,7 @@ export default function RankingSlide() {
           textTransform: 'uppercase',
           color: '#888888'
         }}>
-          RANKING ALGORITHM
+          RESEARCH QUESTION
         </div>
         <div style={{
           fontFamily: '"Monaco", "Menlo", monospace',
@@ -33,7 +33,7 @@ export default function RankingSlide() {
           textTransform: 'uppercase',
           color: '#888888'
         }}>
-          SLIDE 011
+          SLIDE 003
         </div>
       </div>
 
@@ -45,10 +45,10 @@ export default function RankingSlide() {
         justifyContent: 'space-between',
         padding: '80px 60px'
       }}>
-        {/* ANCHOR ZONE - Display headline */}
+        {/* ANCHOR ZONE - Level 1: Display headline */}
         <div style={{ viewTransitionName: 'heading-content' }}>
           <h1 style={{
-            fontSize: '140px',
+            fontSize: '80px',
             fontFamily: '"Helvetica Neue", Arial, sans-serif',
             fontWeight: '900',
             lineHeight: '0.85',
@@ -57,10 +57,13 @@ export default function RankingSlide() {
             margin: '0 0 30px 0',
             textTransform: 'uppercase'
           }}>
-            Ranking<br />Algorithm
+            How can<br />
+            intelligent<br />
+            search improve<br />
+            CVE discovery?
           </h1>
 
-          {/* Red accent bar */}
+          {/* Red accent bar - surgical mark */}
           <div style={{
             width: '120px',
             height: '8px',
@@ -68,37 +71,52 @@ export default function RankingSlide() {
             marginBottom: '60px'
           }} />
 
-          {/* THREE RANKING STEPS */}
+          {/* BODY ZONE - Main question paragraph (Level 3) */}
+          <p style={{
+            fontSize: '16px',
+            fontFamily: '"Helvetica Neue", Arial, sans-serif',
+            fontWeight: '400',
+            lineHeight: '1.6',
+            color: '#0a0a0a',
+            margin: '0 0 60px 0',
+            letterSpacing: '0',
+            maxWidth: '700px'
+          }}>
+            By combining PageRank, BM25, and CVSS scoring, can we deliver faster, more accurate vulnerability prioritization to security teams?
+          </p>
+
+          {/* THREE SUB-QUESTIONS - Grid layout */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr 1fr',
-            gap: '40px'
+            gap: '40px',
+            marginBottom: '60px'
           }}>
             {[
               {
-                step: '01',
-                title: 'Severity Filter',
-                desc: 'CVSS: CRITICAL → HIGH → MEDIUM'
+                num: '01',
+                label: 'ALGORITHM FUSION',
+                question: 'What combination of ranking methods yields optimal CVE prioritization?'
               },
               {
-                step: '02',
-                title: 'PageRank Score',
-                desc: 'Network centrality and authority analysis'
+                num: '02',
+                label: 'NETWORK ADVANTAGE',
+                question: 'Does PageRank outperform text-only similarity for vulnerability discovery?'
               },
               {
-                step: '03',
-                title: 'Publication Date',
-                desc: 'Most recent vulnerabilities first'
+                num: '03',
+                label: 'TIME REDUCTION',
+                question: 'How much faster can teams assess vulnerability exposure?'
               }
             ].map((item, idx) => (
               <div key={idx} style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '16px',
+                gap: '12px',
                 borderLeft: '2px solid #d4564f',
-                paddingLeft: '20px'
+                paddingLeft: '16px'
               }}>
-                {/* Monospace step marker */}
+                {/* Monospace number in ALL CAPS */}
                 <div style={{
                   fontFamily: '"Monaco", "Menlo", monospace',
                   fontSize: '9px',
@@ -107,77 +125,51 @@ export default function RankingSlide() {
                   textTransform: 'uppercase',
                   color: '#888888'
                 }}>
-                  STEP {item.step}
+                  SUB-Q {item.num}
                 </div>
 
-                {/* Step title */}
+                {/* Question label */}
                 <div style={{
-                  fontSize: '16px',
+                  fontSize: '15px',
                   fontFamily: '"Helvetica Neue", Arial, sans-serif',
                   fontWeight: '700',
-                  color: '#0a0a0a'
+                  color: '#0a0a0a',
+                  lineHeight: '1.3'
                 }}>
-                  {item.title}
+                  {item.label}
                 </div>
 
-                {/* Description */}
+                {/* Body text */}
                 <p style={{
-                  fontSize: '15px',
+                  fontSize: '16px',
                   fontFamily: '"Helvetica Neue", Arial, sans-serif',
                   fontWeight: '400',
                   color: '#666',
-                  margin: '0',
-                  lineHeight: '1.5'
+                  lineHeight: '1.5',
+                  margin: '0'
                 }}>
-                  {item.desc}
+                  {item.question}
                 </p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* FORMULA ZONE - Final ranking equation */}
+        {/* METADATA ZONE - Footer */}
         <div style={{
           borderTop: '0.5px solid #c8c6c1',
-          paddingTop: '40px'
+          paddingTop: '30px'
         }}>
           <div style={{
             fontFamily: '"Monaco", "Menlo", monospace',
-            fontSize: '16px',
+            fontSize: '8px',
             fontWeight: '400',
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
-            color: '#888888',
-            marginBottom: '12px'
+            color: '#888888'
           }}>
-            RANKING EQUATION
+            RESEARCH FOUNDATION — SYSTEMATIC INVESTIGATION FRAMEWORK
           </div>
-          <div style={{
-            fontSize: '16px',
-            fontFamily: '"Monaco", "Menlo", monospace',
-            fontWeight: '700',
-            color: '#0a0a0a',
-            lineHeight: '1.6'
-          }}>
-            FINAL_SCORE = (0.4 × BM25) + (0.3 × PageRank) + (0.3 × CVSS)
-          </div>
-        </div>
-      </div>
-
-      {/* FOOTER ZONE */}
-      <div style={{
-        borderTop: '0.5px solid #c8c6c1',
-        padding: '30px 60px'
-      }}>
-        <div style={{
-          fontFamily: '"Monaco", "Menlo", monospace',
-          fontSize: '8px',
-          fontWeight: '400',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          color: '#888888'
-        }}>
-          SCORING METHODOLOGY — WEIGHTED COMBINATION OF RELEVANCE, AUTHORITY, & SEVERITY
         </div>
       </div>
     </div>

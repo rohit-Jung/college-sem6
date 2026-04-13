@@ -1,112 +1,162 @@
 export default function SolutionSlide() {
   return (
-    <div className="w-full h-full bg-paper flex flex-col justify-between" style={{ padding: '10%' }}>
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col justify-center">
-        <h1 style={{
-          fontSize: 'clamp(80px, 18vw, 200px)',
-          fontFamily: 'Helvetica, sans-serif',
-          fontWeight: '900',
-          lineHeight: '0.9',
-          letterSpacing: '-0.04em',
-          color: '#0a0a0a',
-          marginBottom: '3rem',
-          margin: 0
-        }}>
-          INTELLIGENT CVE SEARCH
-        </h1>
-
-        {/* Red Accent Bar */}
-        <div style={{ width: '66%', marginBottom: '2rem', marginTop: '2rem' }}>
-          <div style={{
-            height: '4px',
-            backgroundColor: '#e63329',
-            width: '100%'
-          }} />
-        </div>
-
-        {/* Three Column Layout */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '3rem', marginTop: '4rem' }}>
-          <div>
-            <p style={{
-              fontFamily: 'monospace',
-              fontSize: '9px',
-              fontWeight: '400',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: '#888888',
-              marginBottom: '1rem'
-            }}>
-              CAPABILITY 01
-            </p>
-            <p style={{ color: '#0a0a0a', lineHeight: '1.6', fontWeight: 600, fontSize: '16px' }}>
-              Severity-Ranked Search
-            </p>
-            <p style={{ fontSize: '12px', color: '#888888', marginTop: '0.5rem' }}>
-              Find vulnerabilities by CVSS scores
-            </p>
-          </div>
-          <div>
-            <p style={{
-              fontFamily: 'monospace',
-              fontSize: '9px',
-              fontWeight: '400',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: '#888888',
-              marginBottom: '1rem'
-            }}>
-              CAPABILITY 02
-            </p>
-            <p style={{ color: '#0a0a0a', lineHeight: '1.6', fontWeight: 600, fontSize: '16px' }}>
-              Library Matching
-            </p>
-            <p style={{ fontSize: '12px', color: '#888888', marginTop: '0.5rem' }}>
-              Precise CPE-based indexing
-            </p>
-          </div>
-          <div>
-            <p style={{
-              fontFamily: 'monospace',
-              fontSize: '9px',
-              fontWeight: '400',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color: '#888888',
-              marginBottom: '1rem'
-            }}>
-              CAPABILITY 03
-            </p>
-            <p style={{ color: '#0a0a0a', lineHeight: '1.6', fontWeight: 600, fontSize: '16px' }}>
-              PageRank Analysis
-            </p>
-            <p style={{ fontSize: '12px', color: '#888888', marginTop: '0.5rem' }}>
-              Network-aware vulnerability ranking
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Metadata Footer */}
+    <div className="w-full h-full" style={{
+      backgroundColor: '#f5f4f0',
+      color: '#0a0a0a',
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '0',
+      margin: '0'
+    }}>
+      {/* METADATA ZONE - Top */}
       <div style={{
+        borderBottom: '0.5px solid #c8c6c1',
+        padding: '40px 60px 30px 60px',
         display: 'flex',
-        flexDirection: 'column',
-        gap: '8px',
-        paddingTop: '16px',
-        borderTop: '1px solid #e8e6e1'
+        justifyContent: 'space-between'
       }}>
         <div style={{
-          fontFamily: 'monospace',
-          fontSize: '9px',
+          fontFamily: '"Monaco", "Menlo", monospace',
+          fontSize: '8px',
           fontWeight: '400',
           letterSpacing: '0.15em',
           textTransform: 'uppercase',
           color: '#888888'
         }}>
-          [2] CVE Retrieval — Ranking Vulnerabilities Using Graph Centrality
+          METHODOLOGY & SOLUTION
+        </div>
+        <div style={{
+          fontFamily: '"Monaco", "Menlo", monospace',
+          fontSize: '8px',
+          fontWeight: '400',
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
+          color: '#888888'
+        }}>
+          SLIDE 007
+        </div>
+      </div>
+
+      {/* ANCHOR ZONE - Display headline */}
+      <div style={{
+        borderBottom: '0.5px solid #c8c6c1',
+        padding: '60px 60px 40px 60px',
+        viewTransitionName: 'heading-content'
+      }}>
+        <h1 style={{
+          fontSize: '160px',
+          fontFamily: '"Helvetica Neue", Arial, sans-serif',
+          fontWeight: '900',
+          lineHeight: '0.85',
+          letterSpacing: '-0.03em',
+          color: '#0a0a0a',
+          margin: '0 0 20px 0',
+          textTransform: 'uppercase'
+        }}>
+          Intelligent<br />CVE Search
+        </h1>
+
+        {/* Red accent bar */}
+        <div style={{
+          width: '120px',
+          height: '8px',
+          backgroundColor: '#d4564f'
+        }} />
+      </div>
+
+      {/* THREE CAPABILITIES - Flex columns with monospace borders */}
+      <div style={{
+        flex: 1,
+        display: 'flex',
+        borderBottom: '0.5px solid #c8c6c1'
+      }}>
+        {[
+          {
+            label: 'SEVERITY RANKING',
+            title: 'CVSS Prioritization',
+            description: 'Find vulnerabilities by CVSS scores and impact severity across all indexed systems'
+          },
+          {
+            label: 'LIBRARY MATCHING',
+            title: 'CPE Accuracy',
+            description: 'Precise product matching covering 342,000+ CVEs with CPE-based indexing'
+          },
+          {
+            label: 'PAGERANK ANALYSIS',
+            title: 'Network Authority',
+            description: 'Graph centrality algorithms reveal the most impactful vulnerabilities'
+          }
+        ].map((item, idx) => (
+          <div key={idx} style={{
+            flex: 1,
+            padding: '60px 40px',
+            borderRight: idx < 2 ? '0.5px solid #c8c6c1' : 'none',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            gap: '40px'
+          }}>
+            {/* Top: Metadata label + title */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px'
+            }}>
+              <div style={{
+                fontFamily: '"Monaco", "Menlo", monospace',
+                fontSize: '8px',
+                fontWeight: '400',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: '#888888'
+              }}>
+                CAPABILITY {String(idx + 1).padStart(2, '0')}
+              </div>
+
+              <div style={{
+                fontSize: '28px',
+                fontFamily: '"Helvetica Neue", Arial, sans-serif',
+                fontWeight: '700',
+                lineHeight: '1.2',
+                color: '#0a0a0a',
+                textTransform: 'uppercase'
+              }}>
+                {item.title}
+              </div>
+            </div>
+
+            {/* Bottom: Description */}
+            <p style={{
+              fontSize: '16px',
+              fontFamily: '"Helvetica Neue", Arial, sans-serif',
+              lineHeight: '1.6',
+              color: '#666',
+              fontWeight: '400',
+              margin: '0'
+            }}>
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {/* FOOTER ZONE - Metadata */}
+      <div style={{
+        borderTop: '0.5px solid #c8c6c1',
+        padding: '30px 60px',
+        backgroundColor: '#f5f4f0'
+      }}>
+        <div style={{
+          fontFamily: '"Monaco", "Menlo", monospace',
+          fontSize: '8px',
+          fontWeight: '400',
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+          color: '#888888'
+        }}>
+          CVE RETRIEVAL — RANKING VULNERABILITIES USING GRAPH CENTRALITY & TEXT RELEVANCE
         </div>
       </div>
     </div>
   );
 }
-
