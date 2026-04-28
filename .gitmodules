@@ -1,3 +1,9 @@
 [submodule "ai-deep-learning"]
 	path = ai-deep-learning
 	url = git@github.com:rohit-Jung/DL-6CS012.git
+[submodule "fyp-project"]
+	path = fyp-project 
+	url = git@github.com:rohit-Jung/resqconnect.git
+[submodule "search-engine"]
+	path = ./big-data/assessment/project
+	url = git@github.com:rohit-Jung/search-engine.git
