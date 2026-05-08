@@ -1,3 +1,4 @@
 dataset/
 charts/
 *.md
+!summary.md
