@@ -1,0 +1,6 @@
+flowchart LR
+    A["Acquire<br/>(NVD API/cache)"] --> B["Filter<br/>(indexable subset)"]
+    B --> C["Tokenize<br/>+ stem"]
+    C --> D["Index<br/>(TF/IDF/inverted)"]
+    D --> E["Graph<br/>(CPE product)"]
+    E --> F["Rank<br/>(BM25 + PR + CVSS)"]

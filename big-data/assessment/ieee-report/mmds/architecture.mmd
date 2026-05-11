@@ -1,0 +1,18 @@
+flowchart TB
+  subgraph Data
+    J[Cached NVD JSON<br/>./project/data/data-*.json]
+  end
+  subgraph Engine
+    S[Go Search Engine<br/>BM25 + PageRank + CVSS]
+  end
+  subgraph Baseline
+    P[(Postgres cves table)]
+    Q[SQL ILIKE baseline<br/>(+ pg_trgm index)]
+  end
+  subgraph API_UI
+    A[HTTP API<br/>/api/search, /api/baseline]
+    U[Web UI<br/>localhost:8080]
+  end
+
+  J --> S --> A --> U
+  J --> P --> Q --> A
